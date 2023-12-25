@@ -1,0 +1,14 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.ib {
+  display: inline-block;
+}
+.capitalize-first {
+  text-transform: capitalize;
+}
+#strategycol {
+  height: 80vh;
+  overflow-y: scroll;
+}
