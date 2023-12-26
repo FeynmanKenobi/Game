@@ -15,7 +15,7 @@ const strategies = [
     },
     {
         title: "Friedman",
-        description: "Starts by cooperating but if the opponent defects just once, it will keep defecting for the remainder of the game",
+        description: "Begins by cooperating, but if the opponent defects once, it forgives and returns to cooperation immediately.",
         nature: "nice",
         forgiveness: "forgiving",
         function: friedmanStrategy,
@@ -34,8 +34,6 @@ const strategies = [
         forgiveness: "forgiving",
         function: titForTatStrategy,
     },
-
-
 
     {
         title: "Always Cooperate",
