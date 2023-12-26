@@ -17,7 +17,7 @@ const strategies = [
         title: "Friedman",
         description: "Starts by cooperating but if the opponent defects just once, it will keep defecting for the remainder of the game",
         nature: "nice",
-        forgiveness: "unforgiving",
+        forgiveness: "forgiving",
         function: friedmanStrategy,
     },
     {
@@ -172,11 +172,17 @@ function friedmanStrategy(opponent, history) {
 
     // Defect if opponent defected once
     if (history.some(round => round[opponent] === "defect")) {
-        return "defect";
+        // Return to cooperate if opponent cooperates again
+        if (history[history.length - 1][opponent] === "cooperate") {
+            return "cooperate";
+        } else {
+            return "defect";
+        }
     }
 
     return "cooperate";
 }
+
 
 // Function for Joss strategy
 function jossStrategy(opponent, history) {
