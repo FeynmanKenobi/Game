@@ -232,7 +232,7 @@ function pavlovStrategy(opponent, history) {
     }
 
     // Cooperate if both players' moves are the same in the last round, otherwise, defect
-    if (history[history.length - 1][opponent] === history[history.length - 1].pavlov) {
+    if (history[history.length - 1][opponent] === history[history.length - 1].Pavlov) {
         return "cooperate";
     } else {
         return "defect";
