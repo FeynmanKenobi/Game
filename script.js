@@ -1,66 +1,66 @@
 const strategies = [
     {
-        title: "Random",
-        description: "Randomly cooperates or defects in each round",
-        nature: "nasty",
-        forgiveness: "forgiving",
+        title: "Aléatoire",
+        description: "Coopère ou trahit aléatoirement à chaque tour",
+        nature: "méchant",
+        forgiveness: "indulgent",
         function: randomStrategy,
     },
     {
-        title: "Sample (Tit for Two Tats)",
-        description: "Starts by cooperating and defects only after the opponent has defected twice in a row",
-        nature: "nice",
-        forgiveness: "forgiving",
+        title: "Un prété pour deux rendu",
+        description: "Commence par coopérer et trahit seulement si l'adversaire trahit deux fois de suite.",
+        nature: "gentil",
+        forgiveness: "indulgent",
         function: sampleStrategy,
     },
     {
         title: "Friedman",
-        description: "Begins by cooperating, but if the opponent defects once, it forgives and returns to cooperation immediately.",
-        nature: "nice",
-        forgiveness: "forgiving",
+        description: "Commence par coopérer et, si l'adversaire trahit, trahit à son tour puis pardonne et recommence à coopérer.",
+        nature: "gentil",
+        forgiveness: "indulgent",
         function: friedmanStrategy,
     },
     {
         title: "Joss",
-        description: "Starts by cooperating and then starts copying what the other player did on the last move; 10% of the time defects regardless",
-        nature: "nasty",
-        forgiveness: "unforgiving",
+        description: "Commence par coopérer puis copie ce qu'à fait l'adversaire au tour précédent; Trahit 10% du temps quoi qu'ait joué l'adversaire.",
+        nature: "méchant",
+        forgiveness: "rancunier",
         function: jossStrategy,
     },
     {
-        title: "Tit For Tat",
-        description: "Starts by cooperating and then copies what the opponent did in the last move",
-        nature: "nice",
-        forgiveness: "forgiving",
+        title: "Un prété pour un rendu",
+        description: "Commence par coopérer puis copie ce qu'à fait l'adversaire au tour précédent",
+        nature: "gentil",
+        forgiveness: "indulgent",
         function: titForTatStrategy,
     },
 
     {
-        title: "Always Cooperate",
-        description: "Cooperates in every round",
-        nature: "nice",
-        forgiveness: "forgiving",
+        title: "Coopère toujours",
+        description: "Coopère à chaque tour",
+        nature: "gentil",
+        forgiveness: "indulgent",
         function: alwaysCooperate,
     },
     {
-        title: "Always Defect",
-        description: "Defects in every round",
-        nature: "nasty",
-        forgiveness: "unforgiving",
+        title: "Trahit toujours",
+        description: "Trahit à chaque tour",
+        nature: "méchant",
+        forgiveness: "rancunier",
         function: alwaysDefect,
     },
     {
         title: "Grudger",
-        description: "Cooperates until the opponent defects, then defects forever",
-        nature: "nice",
-        forgiveness: "unforgiving",
+        description: "Coopère jusqu'à ce que l'adversaire trahisse, puis trahit pour toujours",
+        nature: "gentil",
+        forgiveness: "rancunier",
         function: grudgerStrategy,
     },
     {
         title: "Pavlov",
-        description: "Cooperates if both players' moves are the same in the last round, otherwise, defects",
-        nature: "nice",
-        forgiveness: "forgiving",
+        description: "Coopère si les deux joueurs ont joué la même chose au tour précédent, trahit si ce n'est pas le cas",
+        nature: "gentil",
+        forgiveness: "indulgent",
         function: pavlovStrategy,
     },
 ];
@@ -103,8 +103,8 @@ function populateList() {
         listItem.className = 'list-group-item';
         listItem.innerHTML = `
         <h5>${strategy.title}</h5>
-        <span class="capitalize-first badge text-bg-${strategy.nature === "nice" ? "success" : "warning"}">${strategy.nature}</span>
-        <span class="capitalize-first badge text-bg-${strategy.forgiveness === "forgiving" ? "success" : "warning"}">${strategy.forgiveness}</span>
+        <span class="capitalize-first badge text-bg-${strategy.nature === "gentil" ? "success" : "warning"}">${strategy.nature}</span>
+        <span class="capitalize-first badge text-bg-${strategy.forgiveness === "indulgent" ? "success" : "warning"}">${strategy.forgiveness}</span>
         <p><strong>Description:</strong> ${strategy.description}</p>
 
       `;
@@ -141,44 +141,44 @@ populateSelectInputs();
 
 // Function for Random strategy
 function randomStrategy(opponent, history) {
-    // Randomly choose "cooperate" or "defect"
-    return Math.random() < 0.5 ? "cooperate" : "defect";
+    // Randomly choose "coopère" or "trahit"
+    return Math.random() < 0.5 ? "coopère" : "trahit";
 }
 
 // Function for Sample (Tit for Two Tats) strategy
 function sampleStrategy(opponent, history) {
     // Start by cooperating
     if (history.length === 0) {
-        return "cooperate";
+        return "coopère";
     }
 
-    // Defect only after opponent had defected twice in a row
+    // trahit only after opponent had defected twice in a row
     const lastTwoMoves = history.slice(-2);
-    if (lastTwoMoves.every(move => move[opponent] === "defect")) {
-        return "defect";
+    if (lastTwoMoves.every(move => move[opponent] === "trahit")) {
+        return "trahit";
     }
 
-    return "cooperate";
+    return "coopère";
 }
 
 // Function for Friedman strategy
 function friedmanStrategy(opponent, history) {
     // Start by cooperating
     if (history.length === 0) {
-        return "cooperate";
+        return "coopère";
     }
 
-    // Defect if opponent defected once
-    if (history.some(round => round[opponent] === "defect")) {
-        // Return to cooperate if opponent cooperates again
-        if (history[history.length - 1][opponent] === "cooperate") {
-            return "cooperate";
+    // trahit if opponent defected once
+    if (history.some(round => round[opponent] === "trahit")) {
+        // Return to coopère if opponent cooperates again
+        if (history[history.length - 1][opponent] === "coopère") {
+            return "coopère";
         } else {
-            return "defect";
+            return "trahit";
         }
     }
 
-    return "cooperate";
+    return "coopère";
 }
 
 
@@ -186,45 +186,46 @@ function friedmanStrategy(opponent, history) {
 function jossStrategy(opponent, history) {
     // Start by cooperating
     if (history.length === 0) {
-        return "cooperate";
+        return "coopère";
     }
 
-    // Copy opponent's last move 90% of the time, otherwise, defect
-    return Math.random() < 0.9 ? history[history.length - 1][opponent] : "defect";
+    // Copy opponent's last move 90% of the time, otherwise, trahit
+    return Math.random() < 0.9 ? history[history.length - 1][opponent] : "trahit";
 }
 
 // Function for Tit For Tat strategy
 function titForTatStrategy(opponent, history) {
     // Start by cooperating
     if (history.length === 0) {
-        return "cooperate";
+        return "coopère";
     }
 
     // Copy opponent's last move
     return history[history.length - 1][opponent];
 }
-// Cooperate always
+
+// coopère always
 function alwaysCooperate() {
-    return "cooperate";
+    return "coopère";
 }
 
-// Defect always
+// trahit always
 function alwaysDefect() {
-    return "defect";
+    return "trahit";
 }
 
 // Grudger (also known as "Tit for Tat with Forgiveness")
 function grudgerStrategy(opponent, history) {
     // Start by cooperating
     if (history.length === 0) {
-        return "cooperate";
+        return "coopère";
     }
 
-    // Defect if opponent defected at least once, otherwise, cooperate
-    if (history.some(round => round[opponent] === "defect")) {
-        return "defect";
+    // trahit if opponent defected at least once, otherwise, coopère
+    if (history.some(round => round[opponent] === "trahit")) {
+        return "trahit";
     } else {
-        return "cooperate";
+        return "coopère";
     }
 }
 
@@ -232,14 +233,14 @@ function grudgerStrategy(opponent, history) {
 function pavlovStrategy(opponent, history) {
     // Start by cooperating
     if (history.length === 0) {
-        return "cooperate";
+        return "coopère";
     }
 
-    // Cooperate if both players' moves are the same in the last round, otherwise, defect
+    // coopère if both players' moves are the same in the last round, otherwise, trahit
     if (history[history.length - 1][opponent] === history[history.length - 1].Pavlov) {
-        return "cooperate";
+        return "coopère";
     } else {
-        return "defect";
+        return "trahit";
     }
 }
 // end of strategies
@@ -280,16 +281,16 @@ function match() {
 
 
             // calculate scores
-            if (player1Move == "cooperate" && player2Move == "cooperate") {
+            if (player1Move == "coopère" && player2Move == "coopère") {
                 p1score += 3
                 p2score += 3
-            } else if (player1Move == "defect" && player2Move == "defect") {
+            } else if (player1Move == "trahit" && player2Move == "trahit") {
                 p1score += 1
                 p2score += 1
-            } else if (player1Move == "cooperate" && player2Move == "defect") {
+            } else if (player1Move == "coopère" && player2Move == "trahit") {
                 p1score += 0
                 p2score += 5
-            } else if (player1Move == "defect" && player2Move == "cooperate") {
+            } else if (player1Move == "trahit" && player2Move == "coopère") {
                 p1score += 5
                 p2score += 0
             }
@@ -311,9 +312,9 @@ function match() {
                 <div class="ib mb-5" >
                         <div class="">
                      
-                         ${round + 1 === 1 ? "Player 1: " : ""}  ${player1Move === "cooperate" ? `<span class="badge rounded-pill text-bg-success">C</span>` : `<span class="badge rounded-pill text-bg-warning">D</span>`}
+                         ${round + 1 === 1 ? "Player 1: " : ""}  ${player1Move === "coopère" ? `<span class="badge rounded-pill text-bg-success">C</span>` : `<span class="badge rounded-pill text-bg-warning">D</span>`}
                         <br>
-                        ${round + 1 === 1 ? "Player 2: " : ""} ${player2Move === "cooperate" ? `<span class="badge rounded-pill text-bg-success">C</span>` : `<span class="badge rounded-pill text-bg-warning">D</span>`}
+                        ${round + 1 === 1 ? "Player 2: " : ""} ${player2Move === "coopère" ? `<span class="badge rounded-pill text-bg-success">C</span>` : `<span class="badge rounded-pill text-bg-warning">D</span>`}
                 </div>`
 
 
@@ -330,9 +331,9 @@ function match() {
             //             <div class="card-body">
             //             Round ${round + 1}:
             //             <br>
-            //             P1 ${player1Move === "cooperate" ? "C" : "D"}
+            //             P1 ${player1Move === "coopère" ? "C" : "D"}
             //             <br>
-            //             P2 ${player2Move === "cooperate" ? "C" : "D"}
+            //             P2 ${player2Move === "coopère" ? "C" : "D"}
             //             </div>
             //         </div>
             //     </div>`
