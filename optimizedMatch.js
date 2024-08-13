@@ -1,8 +1,5 @@
-function match() {
+function optimizedMatch() {
     console.log("Starting the match");
-
-    // Disable start button
-    startbtn.classList.add("disabled");
 
     // Initialize history array
     let history = [];
@@ -24,7 +21,9 @@ function match() {
         const playRoundWithDelay = (round) => {
             // Base case: stop when reached 10 rounds
             if (round >= numberofrounds.value) {
-                console.log("Match history:", history);
+                let lastElement = history.pop();
+                let matchHistoryString = "Match history: player 1 = " + lastElement["p1score"] + ", player 2 = " + lastElement["p2score"];
+                console.log(matchHistoryString);
                 return;
             }
 
@@ -54,24 +53,6 @@ function match() {
                 "p1score": p1score,
                 "p2score": p2score
             });
-
-            // Log the moves for this round
-            console.log(`Round ${round + 1}: ${player1Title} ${player1Move} vs ${player2Title} ${player2Move}`);
-
-            // add it to the result area
-            resultarea2.innerHTML += `
-                <div class="ib mb-5" >
-                        <div class="">
-                     
-                         ${round + 1 === 1 ? "Player 1: " : ""}  ${player1Move === "coopère" ? `<span class="badge rounded-pill text-bg-success">C</span>` : `<span class="badge rounded-pill text-bg-warning">T</span>`}
-                        <br>
-                        ${round + 1 === 1 ? "Player 2: " : ""} ${player2Move === "coopère" ? `<span class="badge rounded-pill text-bg-success">C</span>` : `<span class="badge rounded-pill text-bg-warning">T</span>`}
-                </div>`
-
-
-            // update score on ui
-            p1scoreui.innerText = p1score;
-            p2scoreui.innerText = p2score;
 
             // Call the function recursively with a delay
             if (delay) {

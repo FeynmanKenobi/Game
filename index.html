@@ -48,7 +48,26 @@
 
             </div>
             <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
 
+                        <div class="row mb-3">
+                            <div class="col-md-5">
+                                <h4>Equipe 1 - Score: <span id="p1TotalScore">0</span></h4>
+                            </div>
+                            <div class="col-md-2 text-center"> vs.</div>
+
+                            <div class="col-md-5">
+                                <h4>Equipe 2 - Score: <span id="p2TotalScore">0</span></h4>
+                            </div>
+
+                        </div>
+
+                        <button id="startMultipleMatchesbtn" type="button" class="btn btn-primary">Go</button>
+
+
+                    </div>
+                </div>
 
                 <h3 class="text-center">Match</h3>
 
@@ -84,7 +103,7 @@
 
                             <div class="mb-3">
                                 <label for="numberofrounds" class="form-label">Nombre de tours</label>
-                                <input type="number" value="100" class="form-control" id="numberofrounds"
+                                <input type="number" value="200" class="form-control" id="numberofrounds"
                                     style="width: 100px;">
                             </div>
 
@@ -153,6 +172,8 @@
     <script defer src="./populateList.js"></script>
     <script defer src="./populateSelectInputs.js"></script>
     <script defer src="./match.js"></script>
+    <script defer src="./optimizedMatch.js"></script>
+    <script defer src="./multipleMatches.js"></script>
     <script defer src="./main.js"></script>
 </body>
 
