@@ -1,19 +1,11 @@
-function optimizedMatch() {
-    console.log("Starting the match");
+function optimizedMatch(player1Strategy, player2Strategy) {
+    //console.log("Starting the match");
 
     // Initialize history array
     let history = [];
 
-    // Get player 1 and 2 titles from select inputs
-    const player1Title = document.getElementById("player1select").value;
-    const player2Title = document.getElementById("player2select").value;
-
-    let p1score = 0
-    let p2score = 0
-
-    // Get the strategy objects for player 1 and 2
-    const player1Strategy = strategies.find(strategy => strategy.title === player1Title);
-    const player2Strategy = strategies.find(strategy => strategy.title === player2Title);
+    let p1score = 0;
+    let p2score = 0;
 
     // Check if both players' strategies are found
     if (player1Strategy && player2Strategy) {
@@ -22,14 +14,14 @@ function optimizedMatch() {
             // Base case: stop when reached 10 rounds
             if (round >= numberofrounds.value) {
                 let lastElement = history.pop();
-                let matchHistoryString = "Match history: player 1 = " + lastElement["p1score"] + ", player 2 = " + lastElement["p2score"];
-                console.log(matchHistoryString);
+                let matchHistoryString = "Match history: " + player1Strategy.title + " = " + lastElement["p1score"] + ", " + player2Strategy.title + " = "  + lastElement["p2score"];
+                //console.log(matchHistoryString);
                 return;
             }
 
             // Get moves for player 1 and 2 based on their strategies and the current history
-            const player1Move = player1Strategy.function(player2Title, history);
-            const player2Move = player2Strategy.function(player1Title, history);
+            const player1Move = player1Strategy.function(player2Strategy.title, history);
+            const player2Move = player2Strategy.function(player1Strategy.title, history);
 
             // calculate scores
             if (player1Move == "coopère" && player2Move == "coopère") {
@@ -48,8 +40,8 @@ function optimizedMatch() {
 
             // Record the moves in the history array
             history.push({
-                [player1Title]: player1Move,
-                [player2Title]: player2Move,
+                [player1Strategy.title]: player1Move,
+                [player2Strategy.title]: player2Move,
                 "p1score": p1score,
                 "p2score": p2score
             });

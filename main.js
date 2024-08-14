@@ -50,11 +50,11 @@ const strategies = [
         function: alwaysDefect,
     },
     {
-        title: "Grudger",
+        title: "Oeil pour oeil",
         description: "Coopère jusqu'à ce que l'adversaire trahisse, puis trahit pour toujours",
         nature: "gentil",
         forgiveness: "rancunier",
-        function: grudgerStrategy,
+        function: anEyeForAnEyeStrategy,
     },
     {
         title: "Pavlov",
@@ -63,6 +63,13 @@ const strategies = [
         forgiveness: "indulgent",
         function: pavlovStrategy,
     },
+    {
+        title: "Tester",
+        description: "Commence par trahir pour voir comment l'adversaire réagit. Si l'adversaire trahit le tour suivant, tester coopère jusqu'à la fin. Si l'adversaire coopère le tour suivant, tester trahit jusqu'a la fin.",
+        nature: "Méchant",
+        forgiveness: "indulgent",
+        function: testerStrategy,
+    }
 ];
 
 

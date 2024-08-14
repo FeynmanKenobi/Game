@@ -7,7 +7,7 @@ function sampleStrategy(opponent, history) {
 
     // trahit only after opponent had defected twice in a row
     const lastTwoMoves = history.slice(-2);
-    if (lastTwoMoves.every(move => move[opponent] === "trahit")) {
+    if (lastTwoMoves.length === 2 && lastTwoMoves.every(move => move[opponent] === "trahit")) {
         return "trahit";
     }
 
