@@ -47,7 +47,7 @@ function optimizedMatch(player1Strategy, player2Strategy) {
 
             // Call the function recursively with a delay
             if (delay) {
-                setTimeout(() => playRoundWithDelay(round + 1), 1000);
+                setTimeout(() => playRoundWithDelay(round + 1), 500);
             } else {
                 playRoundWithDelay(round + 1);
             }
