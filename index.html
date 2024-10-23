@@ -34,73 +34,12 @@
         <div class="row">
             <div class="col-md-4">
                 <h3>Stratégies</h3>
-
-
                 <div id="strategycol">
-                    <ul id="strategyList" class="list-group">
-
-                    </ul>
+                    <ul id="strategyList" class="list-group"></ul>
                 </div>
-
-
-
-
-
             </div>
             <div class="col-md-8">
-                <div class="card mb-3">
-                    <div class="card-body">
-
-                        <div class="row mb-3">
-                            <div class="col-md-5">
-                                <h4>Equipe 1 - Score: <span id="p1TotalScore">0</span></h4>
-                            </div>
-                            <div class="col-md-2 text-center"> vs.</div>
-
-                            <div class="col-md-5">
-                                <h4>Equipe 2 - Score: <span id="p2TotalScore">0</span></h4>
-                            </div>
-
-                        </div>
-
-                        <button id="startMultipleMatchesbtn" type="button" class="btn btn-primary">Go</button>
-
-
-                    </div>
-                </div>
-
-                <div class="col-md-8">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <table id="rankingTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Strategy Title</th>
-                                            <th>Total Score</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr id="TrahitToujours"><td>TrahitToujours</td><td>0</td></tr>
-                                        <tr id="Joss"><td>Joss</td><td>0</td></tr>
-                                        <tr id="Tester"><td>Tester</td><td>0</td></tr>
-                                        <tr id="UnPrétéPourUnRendu"><td>UnPrétéPourUnRendu</td><td>0</td></tr>
-                                        <tr id="OeilPourOeil"><td>OeilPourOeil</td><td>0</td></tr>
-                                        <tr id="Friedman"><td>Friedman</td><td>0</td></tr>
-                                        <tr id="UnPrétéPourDeuxRendu"><td>UnPrétéPourDeuxRendu</td><td>0</td></tr>
-                                        <tr id="CoopèreToujours"><td>CoopèreToujours</td><td>0</td></tr>
-                                        <tr id="Aléatoire"><td>Aléatoire</td><td>0</td></tr>
-                                        <tr id="Pavlov"><td>Pavlov</td><td>0</td></tr>
-                                    </tbody>
-                                </table>
-                                <p id="liveUpdate">test</h3>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="text-center">Match</h3>
+                <h3 class="text-center">Single Match</h3>
 
                 <div class="card mb-3">
                     <div class="card-body">
@@ -157,11 +96,7 @@
                     </div>
                 </div>
 
-
-
                 <!-- result box -->
-
-
                 <div>
 
                     <div id="resultarea2" class="mb-3">
@@ -171,19 +106,58 @@
 
                     <div id="resultarea" class="row row-cols-8 d-none">
 
-                        <!-- 
-                        <div class="col mb-2">
-                            <div class="card">
-                                <div class="card-body">
-                                    This is some text within a card body.
-                                </div>
-                            </div>
-                        </div>
- -->
-
-
                     </div>
 
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+    
+                        <div class="row mb-3">
+                            <div class="col-md-5">
+                                <h4>Equipe 1 - Score: <span id="p1TotalScore">0</span></h4>
+                            </div>
+                            <div class="col-md-2 text-center"> vs.</div>
+    
+                            <div class="col-md-5">
+                                <h4>Equipe 2 - Score: <span id="p2TotalScore">0</span></h4>
+                            </div>
+    
+                        </div>
+    
+                        <button id="startMultipleMatchesbtn" type="button" class="btn btn-primary">Go</button>
+    
+    
+                    </div>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <table id="rankingTable">
+                                <thead>
+                                    <tr>
+                                        <th>Strategy Title</th>
+                                        <th>Total Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="TrahitToujours"><td><b>TrahitToujours</b></td><td><b>0</b></td></tr>
+                                    <tr id="Joss"><td><b>Joss</b></td><td><b>0</b></td></tr>
+                                    <tr id="Tester"><td><b>Tester</b></td><td><b>0</b></td></tr>
+                                    <tr id="UnPrétéPourUnRendu"><td><b>UnPrétéPourUnRendu</b></td><td><b>0</b></td></tr>
+                                    <tr id="OeilPourOeil"><td><b>OeilPourOeil</b></td><td><b>0</b></td></tr>
+                                    <tr id="Friedman"><td><b>Friedman</b></td><td><b>0</b></td></tr>
+                                    <tr id="UnPrétéPourDeuxRendu"><td><b>UnPrétéPourDeuxRendu</b></td><td><b>0</b></td></tr>
+                                    <tr id="CoopèreToujours"><td><b>CoopèreToujours</b></td><td><b>0</b></td></tr>
+                                    <tr id="Aléatoire"><td><b>Aléatoire</b></td><td><b>0</b></td></tr>
+                                    <tr id="Pavlov"><td><b>Pavlov</b></td><td><b>0</b></td></tr>
+                                </tbody>
+                            </table>
+                            <div id="liveUpdate"></div>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
