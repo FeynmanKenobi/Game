@@ -7,7 +7,7 @@ const strategies = [
         function: randomStrategy,
     },
     {
-        title: "Un prété pour deux rendu",
+        title: "UnPrétéPourDeuxRendu",
         description: "Commence par coopérer et trahit seulement si l'adversaire trahit deux fois de suite.",
         nature: "gentil",
         forgiveness: "indulgent",
@@ -28,7 +28,7 @@ const strategies = [
         function: jossStrategy,
     },
     {
-        title: "Un prété pour un rendu",
+        title: "UnPrétéPourUnRendu",
         description: "Commence par coopérer puis copie ce qu'à fait l'adversaire au tour précédent",
         nature: "gentil",
         forgiveness: "indulgent",
@@ -36,21 +36,21 @@ const strategies = [
     },
 
     {
-        title: "Coopère toujours",
+        title: "CoopèreToujours",
         description: "Coopère à chaque tour",
         nature: "gentil",
         forgiveness: "indulgent",
         function: alwaysCooperate,
     },
     {
-        title: "Trahit toujours",
+        title: "TrahitToujours",
         description: "Trahit à chaque tour",
         nature: "méchant",
         forgiveness: "rancunier",
         function: alwaysDefect,
     },
     {
-        title: "Oeil pour oeil",
+        title: "OeilPourOeil",
         description: "Coopère jusqu'à ce que l'adversaire trahisse, puis trahit pour toujours",
         nature: "gentil",
         forgiveness: "rancunier",
@@ -72,6 +72,7 @@ const strategies = [
     }
 ];
 
+let results = [];
 
 const listGroup = document.getElementById('strategyList');
 const player1Select = document.getElementById('player1select');

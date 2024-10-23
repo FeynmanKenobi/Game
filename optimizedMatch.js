@@ -14,7 +14,7 @@ function optimizedMatch(player1Strategy, player2Strategy) {
             // Base case: stop when reached 10 rounds
             if (round >= numberofrounds.value) {
                 let lastElement = history.pop();
-                let matchHistoryString = "Match history: " + player1Strategy.title + " = " + lastElement["p1score"] + ", " + player2Strategy.title + " = "  + lastElement["p2score"];
+                //let matchHistoryString = "Match history: " + player1Strategy.title + " = " + lastElement["p1score"] + ", " + player2Strategy.title + " = "  + lastElement["p2score"];
                 //console.log(matchHistoryString);
                 return;
             }
