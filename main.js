@@ -72,8 +72,6 @@ const strategies = [
     }
 ];
 
-let results = [];
-
 const listGroup = document.getElementById('strategyList');
 const player1Select = document.getElementById('player1select');
 const player2Select = document.getElementById('player2select');
@@ -104,6 +102,8 @@ delaycheckbox.addEventListener("change", function () {
 });
 
 startbtn.addEventListener("click", match);
+
+document.getElementById("ranking").style.display = 'none';
 startMultipleMatchesbtn.addEventListener("click", multipleMatches);
 
 

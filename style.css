@@ -28,6 +28,10 @@ thead {
   background-color: #f4f4f4;
 }
 
-tbody tr.new-entry {
+tbody tr.current {
+  background-color: #e0f8ff;
+}
+
+tbody tr.winner {
   background-color: #e0ffe0;
 }

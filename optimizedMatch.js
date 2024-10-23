@@ -3,7 +3,6 @@ function optimizedMatch(player1Strategy, player2Strategy) {
 
     // Initialize history array
     let history = [];
-
     let p1score = 0;
     let p2score = 0;
 
@@ -13,7 +12,7 @@ function optimizedMatch(player1Strategy, player2Strategy) {
         const playRoundWithDelay = (round) => {
             // Base case: stop when reached 10 rounds
             if (round >= numberofrounds.value) {
-                let lastElement = history.pop();
+                //let lastElement = history.pop();
                 //let matchHistoryString = "Match history: " + player1Strategy.title + " = " + lastElement["p1score"] + ", " + player2Strategy.title + " = "  + lastElement["p2score"];
                 //console.log(matchHistoryString);
                 return;

@@ -39,7 +39,46 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <h3 class="text-center">Single Match</h3>
+                <h3 class="text-center">Tournoi</h3>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <h4>Toutes les équipes s'affrontent les unes les autres (et elles mêmes) un très grand nombre de fois.</h4>
+                            </div>
+                        </div>
+                        <button id="startMultipleMatchesbtn" type="button" class="btn btn-primary">Démarrer</button>
+                        <button type="button" class="btn btn-secondary" onclick="location.reload()">Effacer</button>
+                        <br>
+                        <br>
+                        <div id="ranking" class="mb-3">
+                            <table id="rankingTable">
+                                <thead>
+                                    <tr>
+                                        <th>Équipe</th>
+                                        <th>Score total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="TrahitToujours"><td><b>TrahitToujours</b></td><td><b>0</b></td></tr>
+                                    <tr id="Joss"><td><b>Joss</b></td><td><b>0</b></td></tr>
+                                    <tr id="Tester"><td><b>Tester</b></td><td><b>0</b></td></tr>
+                                    <tr id="UnPrétéPourUnRendu"><td><b>UnPrétéPourUnRendu</b></td><td><b>0</b></td></tr>
+                                    <tr id="OeilPourOeil"><td><b>OeilPourOeil</b></td><td><b>0</b></td></tr>
+                                    <tr id="Friedman"><td><b>Friedman</b></td><td><b>0</b></td></tr>
+                                    <tr id="UnPrétéPourDeuxRendu"><td><b>UnPrétéPourDeuxRendu</b></td><td><b>0</b></td></tr>
+                                    <tr id="CoopèreToujours"><td><b>CoopèreToujours</b></td><td><b>0</b></td></tr>
+                                    <tr id="Aléatoire"><td><b>Aléatoire</b></td><td><b>0</b></td></tr>
+                                    <tr id="Pavlov"><td><b>Pavlov</b></td><td><b>0</b></td></tr>
+                                </tbody>
+                            </table>
+                            <div id="liveUpdate"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-center">Match</h3>
 
                 <div class="card mb-3">
                     <div class="card-body">
@@ -68,15 +107,11 @@
 
 
                         <div class="mb-3">
-
-
-
                             <div class="mb-3">
                                 <label for="numberofrounds" class="form-label">Nombre de tours</label>
                                 <input type="number" value="200" class="form-control" id="numberofrounds"
                                     style="width: 100px;">
                             </div>
-
 
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="delaycheckbox">
@@ -89,77 +124,18 @@
 
 
 
-                        <button id="startbtn" type="button" class="btn btn-primary">Demarrer</button>
+                        <button id="startbtn" type="button" class="btn btn-primary">Démarrer</button>
                         <button type="button" class="btn btn-secondary" onclick="location.reload()">Effacer</button>
-
-
-                    </div>
-                </div>
-
-                <!-- result box -->
-                <div>
-
-                    <div id="resultarea2" class="mb-3">
-
-
-                    </div>
-
-                    <div id="resultarea" class="row row-cols-8 d-none">
-
-                    </div>
-
-                </div>
-
-                <div class="card mb-3">
-                    <div class="card-body">
-    
-                        <div class="row mb-3">
-                            <div class="col-md-5">
-                                <h4>Equipe 1 - Score: <span id="p1TotalScore">0</span></h4>
+                        <br>
+                        <br>
+                        <div class="mb-3">
+                            <div id="resultarea2" class="mb-3">
                             </div>
-                            <div class="col-md-2 text-center"> vs.</div>
-    
-                            <div class="col-md-5">
-                                <h4>Equipe 2 - Score: <span id="p2TotalScore">0</span></h4>
+                            <div id="resultarea" class="row row-cols-8 d-none">
                             </div>
-    
                         </div>
-    
-                        <button id="startMultipleMatchesbtn" type="button" class="btn btn-primary">Go</button>
-    
-    
                     </div>
                 </div>
-                
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="row mb-3">
-                            <table id="rankingTable">
-                                <thead>
-                                    <tr>
-                                        <th>Strategy Title</th>
-                                        <th>Total Score</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr id="TrahitToujours"><td><b>TrahitToujours</b></td><td><b>0</b></td></tr>
-                                    <tr id="Joss"><td><b>Joss</b></td><td><b>0</b></td></tr>
-                                    <tr id="Tester"><td><b>Tester</b></td><td><b>0</b></td></tr>
-                                    <tr id="UnPrétéPourUnRendu"><td><b>UnPrétéPourUnRendu</b></td><td><b>0</b></td></tr>
-                                    <tr id="OeilPourOeil"><td><b>OeilPourOeil</b></td><td><b>0</b></td></tr>
-                                    <tr id="Friedman"><td><b>Friedman</b></td><td><b>0</b></td></tr>
-                                    <tr id="UnPrétéPourDeuxRendu"><td><b>UnPrétéPourDeuxRendu</b></td><td><b>0</b></td></tr>
-                                    <tr id="CoopèreToujours"><td><b>CoopèreToujours</b></td><td><b>0</b></td></tr>
-                                    <tr id="Aléatoire"><td><b>Aléatoire</b></td><td><b>0</b></td></tr>
-                                    <tr id="Pavlov"><td><b>Pavlov</b></td><td><b>0</b></td></tr>
-                                </tbody>
-                            </table>
-                            <div id="liveUpdate"></div>
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
 
         </div>

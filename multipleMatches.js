@@ -2,10 +2,16 @@ function multipleMatches() {
     for(var i = 0; i < strategies.length - 1; i++){
         setStrategyScore(strategies[i].title, 0);
     }
+    var tableData = document.getElementById('rankingTable').getElementsByTagName('tbody').item(0);
+    tableData.children[0].classList.remove('winner');
+    document.getElementById("ranking").style.display = '';
     
     const processNextStrategy = (strategyIndex) => {
+        clearCurrentClass();
         if (strategyIndex >= strategies.length) {
-            clearNewEntryClass();
+
+            var tableData = document.getElementById('rankingTable').getElementsByTagName('tbody').item(0);
+            tableData.children[0].classList.add('winner');
 
             return; // All strategies processed
         }
@@ -13,15 +19,15 @@ function multipleMatches() {
         let currentStrategyTotalScore = 0;
         const currentStrategy = strategies[strategyIndex];
 
+        const myrow = document.getElementById(currentStrategy.title);
+        myrow.classList.add('current');
+
         const processNextMatch = (matchIndex) => {
             if (matchIndex >= strategies.length) {
-                addStrategy({ strategyTitle: currentStrategy.title, totalScore: currentStrategyTotalScore });
+                updateStrategy({ strategyTitle: currentStrategy.title, totalScore: currentStrategyTotalScore });
                 sortTable('rankingTable', 1);
 
-                const myrow = document.getElementById(currentStrategy.title);
-                myrow.classList.add('new-entry');
-
-                setTimeout(() => processNextStrategy(strategyIndex + 1), 500);
+                setTimeout(() => processNextStrategy(strategyIndex + 1), 50);
 
                 return; // All matches processed
             }
@@ -31,7 +37,7 @@ function multipleMatches() {
             let currentStrategyScore = 0;
             let opponentStrategyScore = 0;
 
-            for (let k = 0; k < 200; k++) {
+            for (let k = 0; k < 20; k++) {
                 let history = optimizedMatch(currentStrategy, opponentStrategy);
                 let lastElement = history.pop();
                 currentStrategyScore += lastElement["p1score"];
@@ -52,13 +58,11 @@ function multipleMatches() {
             }
 
             requestAnimationFrame(() => {
-                setTimeout(() => processNextMatch(matchIndex + 1), 500);
+                setTimeout(() => processNextMatch(matchIndex + 1), 50);
             });
         };
 
         processNextMatch(0);
-
-        clearNewEntryClass();
     };
 
     processNextStrategy(0);
@@ -79,16 +83,15 @@ function setStrategyScore(strategyTitle, score) {
     scoreNode.innerHTML = "<b>" + score+ "</b>";
 }
 
-function clearNewEntryClass() {
-    var elements = document.getElementsByClassName('new-entry');
+function clearCurrentClass() {
+    var elements = document.getElementsByClassName('current');
 
     while (elements.length > 0) {
-        elements[0].classList.remove('new-entry');
+        elements[0].classList.remove('current');
     }
 }
 
-function addStrategy(result) {
-    results.push(result);
+function updateStrategy(result) {
     setStrategyScore(result.strategyTitle, result.totalScore.toLocaleString());
 }
 
